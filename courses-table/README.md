@@ -30,6 +30,15 @@ Files: `Code.gs` (server), `Index.html` (page). No secrets are stored here.
 Click a column header to sort (ascending, descending, back to default); click a group heading to collapse it;
 search; Collapse all / Expand all; Refresh.
 
+## Known requirements
+- The script reads monday as the owner of `MONDAY_TOKEN`. That user must be a member of every board a
+  connected-boards or mirror column links to. Otherwise monday hides the column from the script: it never appears in
+  the sheet's dropdown, and putting its name in **Columns** breaks the page with `Columns: no column called "…"`.
+  Fix: add the token's owner to the linked board (the board owner can do it), then add the column in the sheet.
+- Hidden this way as of Nov 24, 2026: **Specialization** (links to NEW Specializations) and **App Taxonomy Skill**
+  (links to Taxonomy). **Total Contract Amount** and **First Payment Amount** are hidden from that user too, probably
+  by monday column permissions.
+
 ## Notes
 - The page is public to anyone with the link. It returns only the columns chosen in the sheet.
 - Filtering is done by monday, so only matching courses are downloaded.
